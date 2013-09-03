@@ -14,9 +14,9 @@ public class WorkOrder {
 	}
 
 	public WorkOrder(SoapObject obj) {
-		this.tesisatNo = GetValue(obj, "TesisatNo");
-		this.statu=GetValue(obj, "Statu");
-		this.workType=GetValue(obj, "WorkType");
+		this.tesisatNo = GetValue(obj, "TESISATNO");
+		this.statu=GetValue(obj, "STATU");
+		this.workType=GetValue(obj, "WORKTYPE");
 		
 	}
 	

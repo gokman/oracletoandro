@@ -2,8 +2,9 @@ package sqlite.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import sqlite.db.MyUserSQLHelper;
 import sqlite.model.User;
-import sqllite.db.MyUserSQLHelper;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
