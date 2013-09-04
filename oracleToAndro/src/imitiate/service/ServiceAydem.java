@@ -1,6 +1,7 @@
 package imitiate.service;
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,17 +14,13 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-import Objects.Malzeme;
-import Objects.Pano;
-import Objects.PhotoInfo;
-import Objects.Response;
-import Objects.User;
-import Objects.WorkOrder;
-import Objects.xxaktpanel;
+import sqlite.model.User;
+import sqlite.model.WorkOrder;
+import sqlite.model.Panel;
 import android.app.Activity;
 import android.content.Context;
 
-public class ServiceAydem extends Activity
+public class ServiceAydem 
 {
 	private static ServiceAydem _service = null;
 	final String NAMESPACE = "http://tempuri.org/";
@@ -58,7 +55,7 @@ public class ServiceAydem extends Activity
          throw e;
 		}
 	}
-	public Response UpdatePanoMalzeme(String panelId,int malzemeId,String value,String Description,boolean isselected)
+	/*public Response UpdatePanoMalzeme(String panelId,int malzemeId,String value,String Description,boolean isselected)
 	{
 		Response response = new Response();
 		SOAP_ACTION = "http://tempuri.org/UpdatePanoMalzeme";
@@ -85,7 +82,7 @@ public class ServiceAydem extends Activity
 			response.Message=e.getMessage();
 		}
 		return response;
-	}
+	}*/
 	public boolean UpSertPhone(String deviceId)
 	{
 		SOAP_ACTION = "http://tempuri.org/UpSertPhone";
@@ -119,7 +116,7 @@ public class ServiceAydem extends Activity
 			return false;
 		}
 	}
-	public List<Malzeme> LoadMalzeme(String PanelId)throws Exception
+	/*public List<Malzeme> LoadMalzeme(String PanelId)throws Exception
 	{
 		SOAP_ACTION = "http://tempuri.org/LoadPanoMalzeme";
 		METHOD_NAME = "LoadPanoMalzeme";
@@ -149,8 +146,8 @@ public class ServiceAydem extends Activity
 			}
 		}
 		return malzemeList;
-	}
-	public   List<Pano> LoadPanel(String userId) throws Exception 
+	}*/
+	/*public   List<Pano> LoadPanel(String userId) throws Exception 
 	{
 		// TODO Auto-generated method stub
 		SOAP_ACTION = "http://tempuri.org/LoadPanel";
@@ -182,8 +179,8 @@ public class ServiceAydem extends Activity
 			}
 		}
 		return panoList;
-	}
-	public xxaktpanel GetPanelVariable(String contents) 
+	}*/
+	public Panel GetPanelVariable(String contents) 
 	{
 		SOAP_ACTION = "http://tempuri.org/GetPanelVariable";
 		METHOD_NAME = "GetPanelVariable";
@@ -197,7 +194,7 @@ public class ServiceAydem extends Activity
 			if(pano==null)
 				return null;
 			else
-			return new xxaktpanel(pano);
+			return new Panel(pano);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -225,7 +222,7 @@ public class ServiceAydem extends Activity
 			return -1;
 		}
 	}
-	public Response InsertGunOzur(int userId,String detail,int count) 
+	/*public Response InsertGunOzur(int userId,String detail,int count) 
 	{
 		SOAP_ACTION = "http://tempuri.org/InsertGunOzur";
 		METHOD_NAME = "InsertGunOzur";
@@ -250,7 +247,7 @@ public class ServiceAydem extends Activity
 			response.Message="hata";
 			return response;
 		}
-	}
+	}*/
 	public boolean IsTrafoAvailable(String trafoCode)
 	{
 		try 
@@ -285,7 +282,7 @@ public class ServiceAydem extends Activity
 			return false;
 		}
 	}	
-	public Response UpsertPanel(Pano pano) 
+	/*public Response UpsertPanel(Pano pano) 
 	{
 		// TODO Auto-generated method stub
 		Response response= new Response();
@@ -321,7 +318,7 @@ public class ServiceAydem extends Activity
 			response.Message=e.getMessage();
 		}
 		return response;
-	}
+	}*/
 	public List<WorkOrder> LoadWorkOrdersOfUserEx(String userId,
 			int WorkOrderStatu, String WorkOrderDate,String AboneNo) throws Exception {
 		SOAP_ACTION = "http://tempuri.org/LoadWorkOrder";
@@ -353,7 +350,7 @@ public class ServiceAydem extends Activity
 		}
 		return ListWorkOrder;
 	}
-	public Response updateWorkOrder (WorkOrder workorder,int updateType) throws Exception
+	/*public Response updateWorkOrder (WorkOrder workorder,int updateType) throws Exception
 	{
 		Map<String, Object> Parameters = new HashMap<String, Object>();
 		Response response= new Response();
@@ -451,7 +448,7 @@ public class ServiceAydem extends Activity
 				throw e;
 			}
 			return response;
-	}
+	}*/
 	public Boolean IsMeterRead(String serialNo) 
 	{
 		// TODO Auto-generated method stub
@@ -615,7 +612,7 @@ public class ServiceAydem extends Activity
 					SoapEnvelope.VER11);
 			envelope.dotNet = true;
 			envelope.addMapping(NAMESPACE, "WorkOrder",new WorkOrder().getClass());
-			envelope.addMapping(NAMESPACE, "PhotoInfo[]",new ArrayList<PhotoInfo>().getClass());
+			//envelope.addMapping(NAMESPACE, "PhotoInfo[]",new ArrayList<PhotoInfo>().getClass());
 
 			envelope.bodyOut = request;
 			envelope.setOutputSoapObject(request);
