@@ -1,4 +1,4 @@
-package android.service;
+package android.timer.service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
