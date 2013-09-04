@@ -67,10 +67,6 @@ public class Servisim extends Service {
 
 					@Override
 					public void run() {
-						//gece 0 ile EXECUTION_TIME_LIMIT deðeri arasýnda bir saatte ise çalýþtýr
-						//if(Integer.parseInt(tarihim.substring(11,13)) < EXECUTION_TIME_LIMIT){
-						//yapýlacak ana iþlem burada olacak
-						//}
 						/*servisin çalýþmasý için 3 kural var
 						 * 1 að ýn iyi olmasý (3g)
 						 * 2 son güncellemenin yapýlmamýþ olmasý
